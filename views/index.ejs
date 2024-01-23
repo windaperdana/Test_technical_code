@@ -1,0 +1,62 @@
+<table>
+    <tr>
+        <td><input type="text" size="10" value="" name="angka" id="input_angka"/></td>
+    </tr>
+    <tr>
+        <td>
+            <button class="generate-segitiga" onclick="generate_segitiga()">Generate Segitiga</button>
+        </td>
+        <td>
+            <button class="generate-bil-ganjil" onclick="genereate_bil_ganjil()">Generate Bilangan Ganjil</button>
+        </td>
+        <td>
+            <button class="generate-bil-prima" onclick="genereate_bil_prima()">Generate Bilangan Prima</button>
+        </td>
+    </tr>
+</table>
+<span class="hasil_segitiga"></span>
+
+<script src="/assets/jquery/jquery.min.js"></script>
+
+<script>
+    function generate_segitiga(){
+        let hsl = "";
+        var tempHasil = $("#input_angka").val();
+        for(let i=1; i<= 7; i++){
+            for(let j=0; j<i; j++){
+                hsl += j;
+            }
+            hsl += "<br>";
+        }
+        console.log(hsl)
+        $('.hasil_segitiga').html(hsl);
+    }
+
+    function genereate_bil_ganjil(){
+        var ganjil = [];
+        var genap = [] ;
+        var tempHasil = $("#input_angka").val();
+        for(let i=1; i < tempHasil.length; i++){
+            if (tempHasil[i] % 2 ==0){
+                genap.push(tempHasil[i]);
+            } else {
+                ganjil.push(tempHasil[i]+ ", ");
+            }
+        }
+        console.log(ganjil)
+        $('.hasil_segitiga').html(ganjil);
+    }
+
+    function genereate_bil_prima(){
+        var bilPrima = [] ;
+        var tempHasil = $("#input_angka").val();
+        for(let i=2; i <= tempHasil; i++){
+            if (tempHasil[i] != undefined){
+                bilPrima.push(tempHasil[i]);
+            }
+        }
+        $('.hasil_segitiga').html(bilPrima);
+
+        console.log(bilPrima)
+    }
+</script>
